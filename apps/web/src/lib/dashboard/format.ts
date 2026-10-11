@@ -21,14 +21,11 @@ export function gaugeColor(v: number | null): string {
 }
 
 export function serviceIndicator(state: string): string {
-  switch (state) {
-    case "running":
-      return "bg-green-400";
-    case "jaeger":
-      return "bg-blue-400";
-    default:
-      return "bg-red-400";
-  }
+  // `jaeger` used to be a case here, mapping a Jaeger service state to blue.
+  // There is no Jaeger client and systemd never reports that state, so the
+  // branch was unreachable: dead code left over from a removed feature. Any
+  // state that is not "running" is the same red.
+  return state === "running" ? "bg-green-400" : "bg-red-400";
 }
 
 export function fmtUptime(seconds: number): string {

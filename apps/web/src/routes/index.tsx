@@ -44,7 +44,7 @@ const techTags = [
   "Node.js",
   "Bun",
   "React",
-  "Next.js",
+  "Vite",
   "TanStack Router",
   "Hono",
   "Axum",
@@ -276,9 +276,9 @@ function Index() {
                     This site doubles as a live infrastructure monitor.
                   </p>
                   <p className="max-w-md text-sm text-muted-foreground">
-                    The dashboard reads this VPS directly — 29 systemd units and
-                    Prometheus metrics for CPU, memory, disk, network and LLM
-                    traffic, on the same box that serves the page.
+                    The dashboard reads this VPS directly — 29 systemd units,
+                    plus Prometheus for CPU, memory, disk and network. Same box
+                    that serves the page.
                   </p>
                   <motion.a
                     href="/dashboard"
