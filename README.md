@@ -35,8 +35,16 @@ from `apps/api`, never runtime code.
 
 | Route | Description |
 |---|---|
-| `/` | Portfolio landing — hero, about, skills, featured project (ZeaVis Edu) |
+| `/` | Portfolio landing — hero, about, skills, project catalogue |
 | `/dashboard` | Live infrastructure monitor — systemd services, Prometheus metrics |
+
+The project catalogue is static data in `apps/web/src/lib/projects.ts` and is
+rendered by `components/portfolio/project-card.tsx`. Every entry is a project
+that exists in a repo under `github.com/asepharyana`, and every `Live` link was
+checked against its hostname. A claim the repository contradicts is a bug in
+that file — `projects.test.ts` guards the structural invariants (no duplicate
+names, https-only links, no empty fields), but nothing can check prose against
+the code it describes; that is a review responsibility.
 
 Both poll `dashboard.getOverview` every 15 s through one shared TanStack Query
 key, so the header and the dashboard are served by a single request.
